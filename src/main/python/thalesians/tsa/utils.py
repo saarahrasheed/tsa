@@ -25,10 +25,14 @@ def sequence_eq(sequence1, sequence2):
     return len(sequence1) == len(sequence2) and all(map(operator.eq, sequence1, sequence2))
 
 def cmp(x, y):
+    """
+    Compares x and y. Returns 1 if x>y, -1 if x<y and zero if x=y.
+    """
     return (x > y) - (x < y)
 
 def most_common(iterable):
     """
+    Returns the most repeated value in an iterable.
     >>> most_common(['foo', 'bar', 'bar', 'foo', 'bar'])
     'bar'
     >>> most_common(['foo', 'bar', 'bar', 'foo'])
@@ -49,6 +53,16 @@ def most_common(iterable):
     return max(groups, key=_auxfun)[0]
 
 def prepend(collection, to_prepend, in_place=False):
+    """
+    Appends a list to the start of another list. 
+    :param collection: list to append to.
+    :param to_prepend: the list to append in the start of collection
+    :param in_place: If False, creates a shallow copy of the original list.
+    
+    >> prepend([1,2,3,4], [0], False)
+    Out[1]: [0, 1, 2, 3, 4]
+    
+    """
     if not in_place: collection = copy.copy(collection)
     collection[0:0] = to_prepend
     return collection
