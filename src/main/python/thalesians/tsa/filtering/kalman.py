@@ -117,6 +117,14 @@ class KalmanFilterState(filtering.FilterState):
         return self._str_KalmanFilterState
 
 class KalmanFilter(objects.Named):
+        """
+        Main Kalman Filter Class.
+        
+        Kalman filtering is an algorithm for LINEAR QUADRATIC ESTIMATION (LQE) that produces accurate estimates of variables 
+        observed over a period of time, that contains certain noise. The estimates are produced by using joint probabilities 
+        for the variables, which generates more accurate results as opposed to the original observation conducted in isolation. 
+
+        """
     LN_2PI = np.log(2. * np.pi)
     
     def __init__(self, time, state_distr, process, approximate_distr=False,
